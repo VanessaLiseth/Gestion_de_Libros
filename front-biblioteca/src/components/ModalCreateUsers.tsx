@@ -49,7 +49,7 @@ export default function ModalCrearUsuario({ open, onClose, onSuccess }: Props) {
         const msg = await res.text();
         setError(`Error al registrar: ${msg}`);
       }
-    } catch  {
+    } catch {
       setError("No se pudo conectar con el servidor.");
     }
   };

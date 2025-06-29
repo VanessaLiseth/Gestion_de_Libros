@@ -18,4 +18,10 @@ func RegisterRoutes(router *gin.Engine) {
 
 	router.GET("/books", controllers.GetBooks)
 	router.POST("/books", controllers.RegistBook)
+
+	router.GET("/loans", controllers.GetLoans)
+	router.GET("/loans/:id", controllers.GetLoansByID)
+	router.POST("/loans", controllers.RegistLoan)
+
+	router.POST("/return/:id", controllers.RegistReturn)
 }

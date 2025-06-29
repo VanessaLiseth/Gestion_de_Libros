@@ -83,7 +83,7 @@ export default function ModalCrearLibro({ open, onClose, onSuccess }: Props) {
       } else {
         alert("Error al crear libro");
       }
-    } catch  {
+    } catch {
       alert("Error en la conexión");
     }
   };
@@ -98,7 +98,7 @@ export default function ModalCrearLibro({ open, onClose, onSuccess }: Props) {
           </div>
         ) : (
           <Grid container spacing={2} className="pt-2">
-            <Grid >
+            <Grid>
               <TextField
                 fullWidth
                 label="Título"
@@ -107,7 +107,7 @@ export default function ModalCrearLibro({ open, onClose, onSuccess }: Props) {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid >
+            <Grid>
               <TextField
                 fullWidth
                 type="date"

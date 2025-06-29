@@ -29,7 +29,7 @@ func DoLogin(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "Inicio de session exitoso", "rol": user.Rol})
+	c.JSON(http.StatusOK, gin.H{"message": "Inicio de session exitoso", "rol": user.Rol, "id": user.Id})
 }
 
 func RegistUser(c *gin.Context) {

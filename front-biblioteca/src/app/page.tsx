@@ -36,6 +36,7 @@ export default function Login() {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("rol", data.rol);
+        localStorage.setItem("userId", data.id.toString());
         router.push("/home");
       } else {
         setError("Error de autenticación: Usuario o contraseña incorrectos.");

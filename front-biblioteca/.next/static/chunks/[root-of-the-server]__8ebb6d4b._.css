@@ -97,6 +97,7 @@
   @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
     *, :before, :after, ::backdrop {
       --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
       --tw-gradient-via: #0000;
@@ -133,10 +134,14 @@
     --color-purple-200: oklch(90.2% .063 306.703);
     --color-purple-600: oklch(55.8% .288 302.321);
     --color-gray-100: oklch(96.7% .003 264.542);
+    --color-gray-200: oklch(92.8% .006 264.531);
     --color-gray-700: oklch(37.3% .034 259.733);
     --color-gray-800: oklch(27.8% .033 256.848);
+    --color-white: #fff;
     --spacing: .25rem;
     --container-md: 28rem;
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --radius-lg: .5rem;
@@ -332,6 +337,10 @@
 @layer mui, components;
 
 @layer utilities {
+  .static {
+    position: static;
+  }
+
   .container {
     width: 100%;
   }
@@ -398,8 +407,16 @@
     max-width: var(--container-md);
   }
 
+  .min-w-full {
+    min-width: 100%;
+  }
+
   .shrink {
     flex-shrink: 1;
+  }
+
+  .cursor-pointer {
+    cursor: pointer;
   }
 
   .items-center {
@@ -412,6 +429,10 @@
 
   .justify-center {
     justify-content: center;
+  }
+
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
   }
 
   :where(.space-y-6 > :not(:last-child)) {
@@ -432,12 +453,34 @@
     border-radius: var(--radius-xl);
   }
 
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+  }
+
+  .border-b {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+
+  .border-gray-200 {
+    border-color: var(--color-gray-200);
+  }
+
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
 
   .bg-purple-200 {
     background-color: var(--color-purple-200);
+  }
+
+  .bg-purple-600 {
+    background-color: var(--color-purple-600);
+  }
+
+  .bg-white {
+    background-color: var(--color-white);
   }
 
   .bg-gradient-to-br {
@@ -455,8 +498,20 @@
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
 
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
+  }
+
   .p-8 {
     padding: calc(var(--spacing) * 8);
+  }
+
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
+  }
+
+  .py-2 {
+    padding-block: calc(var(--spacing) * 2);
   }
 
   .py-8 {
@@ -469,6 +524,11 @@
 
   .text-center {
     text-align: center;
+  }
+
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
 
   .font-bold {
@@ -513,6 +573,12 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 
 @property --tw-gradient-position {
